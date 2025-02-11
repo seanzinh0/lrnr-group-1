@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
 
+// component that navigates to other pages and allow users to customize paths and name
 const MediumNavigationButton = ({name, routeName}) => {
     return (
         <>
