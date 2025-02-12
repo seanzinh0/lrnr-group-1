@@ -1,6 +1,5 @@
-import "../App.css";
-import "../App.css";
-import QuizDropdown from "../components/QuizDropdown";
+import '../App.css'
+import QuizDropdown from '../components/QuizDropdown'
 
 const QuizGenerator = () => {
   const topics = ["Goland", "AWS", "Javascript", "CI/CD"];
@@ -17,27 +16,30 @@ const QuizGenerator = () => {
     "Goku",
   ];
 
-  return (
-    <>
-      <div class="flex flex-col p-10">
-        <h1 class="text-4xl">Quiz Generation Options</h1>
-        <p class="pt-10">
-          Please choose your preferences below to generate your personalized
-          quiz.
-        </p>
-        <div class="space-y-5">
-          <h1 class="mt-10 text-gray-500">Topic</h1>
-          <QuizDropdown data={topics} />
-          <h1 class="text-gray-500">Expertise</h1>
-          <QuizDropdown data={difficulty} />
-          <h1 class="text-gray-500">Number of Questions</h1>
-          <QuizDropdown data={questionAmount} />
-          <h1 class="text-gray-500">Style of questions</h1>
-          <QuizDropdown data={style} />
-        </div>
-      </div>
-    </>
-  );
-};
+    return (
+        <>
+
+            <div class='flex flex-col p-10'>
+
+                <h1 class='text-4xl'>Quiz Generation Options</h1>
+                <p class='pt-10'>Please choose your preferences below to generate your personalized quiz.</p>
+
+                <div class='space-y-5'>
+                    <h1 class='mt-10 text-gray-500'>Topic</h1>
+                    <QuizDropdown data={topics}/>
+                    <h1 class='text-gray-500'>Expertise</h1>
+                    <QuizDropdown data={difficulty}/>
+                    <h1 class='text-gray-500'>Number of Questions</h1>
+                    <QuizDropdown data={questionAmount} />
+                    <h1 class='text-gray-500'>Style of questions</h1>
+                    <QuizDropdown data={style} />
+                </div>
+
+                <button class=''>Submit</button>
+            </div>
+
+        </>
+    )
+}
 
 export default QuizGenerator;
