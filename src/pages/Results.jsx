@@ -1,12 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import PageNavigationButton from "../components/PageNavigationButton";
 import ScoreSummary from "../components/ScoreSummary";
 
 const ResultsPage = ({ totalQuestions, correctAnswers }) => {
-  const navigate = useNavigate();
-  const handleTryAnotherQuiz = () => {
-    navigate("/quizgenerator");
-  };
   return (
     <div className="results-page">
       <main className="flex flex-col justify-center items-center mt-12 px-4">
@@ -17,12 +13,12 @@ const ResultsPage = ({ totalQuestions, correctAnswers }) => {
           totalQuestions={totalQuestions}
           correctAnswers={correctAnswers}
         />
-        <button
-          onClick={handleTryAnotherQuiz}
-          className="mt-6 bg-teal-500 text-white py-2 px-8 rounded-lg hover:bg-teal-600"
-        >
-          Try Another Quiz
-        </button>
+        <div className="flex justify-center mt-6 mb-12">
+          <PageNavigationButton
+            name={"TRY ANOTHER QUIZ"}
+            routeName={"quizgenerator"}
+          />
+        </div>
       </main>
     </div>
   );
