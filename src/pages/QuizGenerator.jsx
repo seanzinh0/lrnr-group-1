@@ -2,34 +2,19 @@ import '../App.css'
 import QuizDropdown from '../components/QuizDropdown'
 
 const QuizGenerator = () => {
+  const topics = ["Goland", "AWS", "Javascript", "CI/CD"];
 
-    const topics = [
-        'Goland',
-        'AWS',
-        'Javascript',
-        'CI/CD'
-    ]
+  const difficulty = ["Novice", "Intermediate", "Expert"];
 
-    const difficulty = [
-        'Novice',
-        'Intermediate',
-        'Expert'
-    ]
+  const questionAmount = [5, 10, 15];
 
-    const questionAmount = [
-        5,
-        10,
-        15
-    ]
-
-    const style = [
-        'Master Oogway',
-        '1940s Gangster',
-        'Like I am 8 years old',
-        'Jedi', 
-        'Goku',
-    ]
-
+  const style = [
+    "Master Oogway",
+    "1940s Gangster",
+    "Like I am 8 years old",
+    "Jedi",
+    "Goku",
+  ];
 
     return (
         <>
@@ -57,4 +42,4 @@ const QuizGenerator = () => {
     )
 }
 
-export default QuizGenerator
+export default QuizGenerator;
