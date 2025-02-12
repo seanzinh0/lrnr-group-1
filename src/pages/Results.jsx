@@ -5,7 +5,7 @@ import ScoreSummary from "../components/ScoreSummary";
 const ResultsPage = ({ totalQuestions, correctAnswers }) => {
   return (
     <div className="results-page">
-      <main className="flex flex-col justify-center items-center mt-12 px-4">
+      <main className="flex flex-col justify-center items-center mb-72 mt-12 px-4">
         <h1 className="text-teal-600 text-5xl p-4 flex justify-between items-center">
           lrnr
         </h1>
