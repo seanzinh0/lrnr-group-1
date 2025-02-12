@@ -12,7 +12,7 @@ const QuizDropdown = (props) => {
 
     return (
         <>
-            <select class="w-10/12 p-3 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500 bg-transparent">
+            <select class="w-11/12 p-3 border-b-2 border-gray-300 focus:outline-0 focus:border-blue-500 bg-transparent">
                 <option></option>
                 {selectOptions}
             </select>

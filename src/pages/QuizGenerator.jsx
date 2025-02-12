@@ -38,6 +38,7 @@ const QuizGenerator = () => {
 
                 <h1 class='text-4xl'>Quiz Generation Options</h1>
                 <p class='pt-10'>Please choose your preferences below to generate your personalized quiz.</p>
+
                 <div class='space-y-5'>
                     <h1 class='mt-10 text-gray-500'>Topic</h1>
                     <QuizDropdown data={topics}/>
@@ -48,6 +49,8 @@ const QuizGenerator = () => {
                     <h1 class='text-gray-500'>Style of questions</h1>
                     <QuizDropdown data={style} />
                 </div>
+
+                <button class=''>Submit</button>
             </div>
 
         </>
