@@ -19,23 +19,23 @@ const QuizGenerator = () => {
     return (
         <>
 
-            <div class='flex flex-col p-10'>
+            <div className='flex flex-col p-10'>
 
-                <h1 class='text-4xl'>Quiz Generation Options</h1>
-                <p class='pt-10'>Please choose your preferences below to generate your personalized quiz.</p>
+                <h1 className='text-4xl'>Quiz Generation Options</h1>
+                <p className='pt-10'>Please choose your preferences below to generate your personalized quiz.</p>
 
-                <div class='space-y-5'>
-                    <h1 class='mt-10 text-gray-500'>Topic</h1>
+                <div className='space-y-5'>
+                    <h1 className='mt-10 text-gray-500'>Topic</h1>
                     <QuizDropdown data={topics}/>
-                    <h1 class='text-gray-500'>Expertise</h1>
+                    <h1 className='text-gray-500'>Expertise</h1>
                     <QuizDropdown data={difficulty}/>
-                    <h1 class='text-gray-500'>Number of Questions</h1>
+                    <h1 className='text-gray-500'>Number of Questions</h1>
                     <QuizDropdown data={questionAmount} />
-                    <h1 class='text-gray-500'>Style of questions</h1>
+                    <h1 className='text-gray-500'>Style of questions</h1>
                     <QuizDropdown data={style} />
                 </div>
 
-                <button class=''>Submit</button>
+                <button className=''>Submit</button>
             </div>
 
         </>
