@@ -1,6 +1,8 @@
 import '../App.css'
 import QuizDropdown from '../components/QuizDropdown'
 
+
+//Uses the arrays as props to create dropdown options
 const QuizGenerator = () => {
   const topics = ["Goland", "AWS", "Javascript", "CI/CD"];
 
@@ -35,7 +37,10 @@ const QuizGenerator = () => {
                     <QuizDropdown data={style} />
                 </div>
 
-                <button className=''>Submit</button>
+                <button className="bg-green-600 text-white px-6 py-2 mt-10 font-semibold hover:bg-green-700 active:bg-green-800 border border-green-700 text-left w-fit">
+                     Submit
+                </button>
+
             </div>
 
         </>
