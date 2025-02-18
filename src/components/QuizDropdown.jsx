@@ -1,7 +1,9 @@
 
 
+//creates props that can be passed through to create dropdown options
 const QuizDropdown = (props) => {
 
+    //maps each option
     const selectOptions = props.data.map(option => (
         <option className="text-gray-900 p-3" key={option} value={option}>
 
