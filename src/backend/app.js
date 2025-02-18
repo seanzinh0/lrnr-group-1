@@ -11,6 +11,7 @@ const __dirname = dirname(__filename);
 
 const distPath = path.join(__dirname, '..', '..', 'dist')
 
+app.use(express.json)
 app.use(express.static(distPath))
 
 app.get('/api/quizgenerator', (req, res) => {
