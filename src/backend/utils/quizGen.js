@@ -5,14 +5,19 @@ dotenv.config();
 
 const apiKey = process.env.API_KEY;
 
-async function callClaude() {
+async function generateQuiz() {
+    const topic = "Science";
+    const difficulty = "Medium";
+    const questionAmount = 5;
+    const style = "Normal";
+    
     try {
         const response = await axios.post('https://api.anthropic.com/v1/messages', {
             model: 'claude-3-5-sonnet-20241022',
             messages: [
-                { role: 'user', content: 'Hello, Claude!' }
+                { role: 'user', content: buildQuizPrompt(topic, difficulty, questionAmount, style) }
             ],
-            max_tokens: 100
+            max_tokens: 2000
         }, {
             headers: {
                 'x-api-key': apiKey,
@@ -20,21 +25,44 @@ async function callClaude() {
                 'content-type': 'application/json'
             }
         });
-
-        console.log('Response from Claude:', response.data);
+        
+        const quizData = extractJson(response.data);
+        const questions = quizData.questions || [];
+        console.log('Generated Questions:', questions);
+        return questions;
     } catch (error) {
-        if (error.response) {
-            console.error('Error response from Claude API:', error.response.data);
-            console.error('Status code:', error.response.status);
-            console.error('Headers:', error.response.headers);
-        } else if (error.request) {
-            // The request was made but no response was received
-            console.error('No response received from Claude API:', error.request);
-        } else {
-            console.error('Error setting up the request:', error.message);
-        }
-        console.error('Config:', error.config);
+        handleClaudeError(error);
     }
 }
 
-callClaude();
+function buildQuizPrompt(topic, difficulty, questionAmount, style) {
+    return `Generate ${questionAmount} ${style}-style ${difficulty} questions about ${topic}.
+JSON Template:
+{
+  "questions": [
+    { "id": 1, "text": "...[question]...", "voice_indicators": ["attribute1", "attribute2"] }
+  ]
+}`;
+}
+
+function extractJson(responseData) {
+    const jsonMatch = responseData?.content?.[0]?.text?.match(/{[\s\S]*}/);
+    if (!jsonMatch) throw new Error('No valid JSON found in response');
+    try {
+        return JSON.parse(jsonMatch[0]);
+    } catch (e) {
+        throw new Error('Invalid JSON format from API');
+    }
+}
+
+function handleClaudeError(error) {
+    if (error.response) {
+        console.error(`API Error ${error.response.status}: ${error.response.data.error?.message || 'Unknown error'}`);
+    } else if (error.code === 'ECONNABORTED') {
+        console.error('Request timed out');
+    } else {
+        console.error(`Network error: ${error.message}`);
+    }
+}
+
+generateQuiz();
