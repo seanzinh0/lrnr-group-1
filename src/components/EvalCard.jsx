@@ -4,6 +4,7 @@ import React from "react";
 export default function Eval({question, answer, handleNextQuestion}) {
   return (
     <div className="evalGen text-teal-500 p-4 flex flex-col w-11/12">
+        {/*these h3 is just to show the question and answewr being passed*/}
         <h3>{question}</h3>
         <h3>{answer}</h3>
       <div className="flex justify-between">
