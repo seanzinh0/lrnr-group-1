@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function Eval() {
+// use the prop to pass into api and generate the eval
+export default function Eval({question, answer}) {
   return (
     <div className="evalGen text-teal-500 p-4 flex flex-col w-11/12">
       <div className="flex justify-between">
