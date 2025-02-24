@@ -8,7 +8,9 @@ const Layout = () => {
     return (
         <>
             <Navbar/>
+            <div className="h-full min-h-screen relative">
             <Outlet/>
+            </div>
             <Footer/>
         </>
     )
