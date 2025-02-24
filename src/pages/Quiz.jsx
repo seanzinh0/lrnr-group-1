@@ -1,5 +1,5 @@
 import "../App.css";
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import QuizCard from "../components/QuizCard.jsx";
 
 // take in data as prop
@@ -45,17 +45,20 @@ const Quiz = () => {
         setCurrentQuestion(currentQuestion + 1);
     };
 
-  //map and manage state for each quiz card
-  return (
-    <>
-        <h1 className="text-teal-500 text-4xl text-center mt-5">{currentQuestion + 1} of {data.questions.length}</h1>
-        {currentQuestion < data.questions.length ? (
-            <QuizCard question={data.questions[currentQuestion].text} handleNextQuestion={handleNextQuestion} />
-        ) : (
-            <h1 className="text-teal-500 text-4xl text-center mt-5">Quiz Complete!</h1>
-        )}
-    </>
-  );
+    //map and manage state for each quiz card
+    return (
+        <>
+
+            {currentQuestion < data.questions.length ? (
+                <>
+                    <h1 className="text-teal-500 text-4xl text-center mt-5">{currentQuestion + 1} of {data.questions.length}</h1>
+                    <QuizCard question={data.questions[currentQuestion].text} handleNextQuestion={handleNextQuestion}/>
+                </>
+            ) : (
+                <h1 className="text-teal-500 text-4xl text-center mt-5">Quiz Complete!</h1>
+            )}
+        </>
+    );
 };
 
 export default Quiz;
