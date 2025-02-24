@@ -1,9 +1,11 @@
 import React from "react";
 
 // use the prop to pass into api and generate the eval
-export default function Eval({question, answer}) {
+export default function Eval({question, answer, handleNextQuestion}) {
   return (
     <div className="evalGen text-teal-500 p-4 flex flex-col w-11/12">
+        <h3>{question}</h3>
+        <h3>{answer}</h3>
       <div className="flex justify-between">
         <div>
           <h2 className="text-4xl mb-4 mr-40">Verners Evaluation</h2>
@@ -18,9 +20,11 @@ export default function Eval({question, answer}) {
           ratione voluptatibus quos ipsa!
         </p>
       </div>
-      <button className="bg-teal-500 rounded text-white text-xs border-solid w-24 p-3 rounded-1">
-        NEXT
-      </button>
+        <button
+            className="bg-teal-500 rounded text-white text-xs border-solid w-24 p-3 rounded-1"
+            onClick={handleNextQuestion}
+        > NEXT
+        </button>
     </div>
   );
 }
