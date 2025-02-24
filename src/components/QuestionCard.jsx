@@ -8,10 +8,7 @@ export default function Questions({ question }) {
       <div className="questionGen text-teal-500 p-4 w-11/12 flex flex-col">
         <div>
           <h1 className="text-4xl">Question</h1>
-          <p className="text-black m-4 ml-0">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
-            eius.
-          </p>
+          <p className="text-black m-4 ml-0">{question}</p>
 
           <h2 className="text-4xl">Your Answer</h2>
           <div className="flex flex-col ml-2 mt-10">

@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import "../App.css";
 import QuizDropdown from "../components/QuizDropdown";
+import { useNavigate } from "react-router-dom";
 
-//Uses the arrays as props to create dropdown options
 const QuizGenerator = () => {
   const topics = ["Goland", "AWS", "Javascript", "CI/CD"];
-
   const difficulty = ["Novice", "Intermediate", "Expert"];
-
   const questionAmount = [5, 10, 15];
-
   const style = [
     "Master Oogway",
     "1940s Gangster",
@@ -18,25 +15,41 @@ const QuizGenerator = () => {
     "Goku",
   ];
 
-  // State for storing user selections
   const [selectedTopic, setSelectedTopic] = useState("");
   const [selectedDifficulty, setSelectedDifficulty] = useState("");
   const [selectedQuestions, setSelectedQuestions] = useState("");
   const [selectedStyle, setSelectedStyle] = useState("");
+  const navigate = useNavigate();
 
-  // Function to handle form submission
-  const handleSubmit = () => {
-    console.log({
-      selectedTopic,
-      selectedDifficulty,
-      selectedQuestions,
-      selectedStyle,
-    });
+  const handleSubmit = async () => {
+    const quizParams = {
+      topic: selectedTopic,
+      difficulty: selectedDifficulty,
+      questions: selectedQuestions,
+      style: selectedStyle,
+    };
 
-    alert(
-      `Quiz generated with ${selectedQuestions} questions on ${selectedTopic} for ${selectedDifficulty} level`
-    );
+    try {
+      const response = await fetch('/api/quizgenerator', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(quizParams),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to generate quiz');
+      }
+
+      const quizData = await response.json();
+      navigate('/quiz', { state: { quizData } });
+    } catch (error) {
+      console.error('Error generating quiz:', error);
+      alert('Failed to generate quiz. Please try again.');
+    }
   };
+
   return (
     <>
       <div className="flex flex-col p-10">
