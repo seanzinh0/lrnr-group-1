@@ -22,7 +22,7 @@ export default function Eval({question, answer, handleNextQuestion}) {
         </p>
       </div>
         <button
-            className="bg-teal-500 rounded text-white text-xs border-solid w-24 p-3 rounded-1"
+            className="bg-teal-500 hover:bg-teal-700 rounded text-white text-xs border-solid w-24 p-3 rounded-1"
             onClick={handleNextQuestion}
         > NEXT
         </button>

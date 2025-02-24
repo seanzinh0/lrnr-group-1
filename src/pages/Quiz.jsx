@@ -1,6 +1,7 @@
 import "../App.css";
 import React, {useState, useEffect} from "react";
 import QuizCard from "../components/QuizCard.jsx";
+import { useNavigate } from "react-router-dom";
 
 // take in data as prop
 
@@ -40,22 +41,32 @@ const data = {
 
 const Quiz = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [submitted, setSubmitted] = useState(false);
+    const navigate = useNavigate();
 
     const handleNextQuestion = () => {
-        setCurrentQuestion(currentQuestion + 1);
+        if (currentQuestion < data.questions.length - 1) {
+            setCurrentQuestion(currentQuestion + 1);
+            setSubmitted(false);
+        } else {
+            navigate("/results");
+        }
+    };
+
+    const handleSubmit = () => {
+        setSubmitted(true);
     };
 
     //map and manage state for each quiz card
     return (
         <>
-
             {currentQuestion < data.questions.length ? (
                 <>
                     <h1 className="text-teal-500 text-4xl text-center mt-5">{currentQuestion + 1} of {data.questions.length}</h1>
-                    <QuizCard question={data.questions[currentQuestion].text} handleNextQuestion={handleNextQuestion}/>
+                    <QuizCard question={data.questions[currentQuestion].text} handleSubmit={handleSubmit} submitted={submitted} handleNextQuestion={handleNextQuestion} />
                 </>
             ) : (
-                <h1 className="text-teal-500 text-4xl text-center mt-5">Quiz Complete!</h1>
+                navigate("/results")
             )}
         </>
     );
