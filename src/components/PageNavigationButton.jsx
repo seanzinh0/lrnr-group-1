@@ -5,7 +5,7 @@ const PageNavigationButton = ({name, routeName}) => {
     return (
         <>
             <Link to={`/${routeName}`}>
-            <button className='w-52 bg-teal-500 text-white p-4 rounded hover:bg-teal-700 text-lg'>{name}</button>
+            <button className='bg-teal-500 text-white p-4 rounded hover:bg-teal-700 md:text-lg'>{name}</button>
             </Link>
         </>
     )

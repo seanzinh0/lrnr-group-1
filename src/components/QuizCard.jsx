@@ -11,7 +11,7 @@ const QuizCard = ({question, handleSubmit, submitted, handleNextQuestion}) => {
 
     return (
         <>
-            <div className="mb-44 flex justify-center">
+            <div className="mb-10 md:mb-44 flex justify-center">
                 {/*pass the question as a prop*/}
                 <QuestionCard question={question} handleAnswerChange={handleAnswerChange} handleSubmit={handleSubmit}
                               submitted={submitted}/>
