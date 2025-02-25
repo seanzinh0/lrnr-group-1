@@ -24,7 +24,7 @@ const QuestionCard = ({ question, handleAnswerChange, handleSubmit, submitted })
       <>
         <div className="questionGen text-teal-500 p-4 w-11/12 flex flex-col">
           <div>
-            <div className='mb-20'>
+            <div className='mb-10 md:mb-20'>
               <h1 className="text-4xl">Question</h1>
               <p className="text-black m-4 ml-0">{question}</p>
             </div>
@@ -50,7 +50,7 @@ const QuestionCard = ({ question, handleAnswerChange, handleSubmit, submitted })
             </div>
           </div>
           <button
-              className={`bg-teal-500 rounded text-white text-xs border-solid w-1/12 p-3 rounded-1 mt-10 ${submitted ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`bg-teal-500 rounded text-white text-xs border-solid w-36 p-3 rounded-1 mt-10 ${submitted ? 'opacity-50 cursor-not-allowed' : ''}`}
               onClick={submitted ? () => {} : handleSubmission}
               disabled={submitted}
           >

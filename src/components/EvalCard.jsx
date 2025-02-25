@@ -7,12 +7,12 @@ export default function Eval({question, answer, handleNextQuestion}) {
         {/*these h3 is just to show the question and answewr being passed*/}
         <h3>{question}</h3>
         <h3>{answer}</h3>
-      <div className="flex justify-between">
+      <div className="flex justify-between md:flex-row flex-col">
         <div>
           <h2 className="text-4xl mb-4 mr-40">Verners Evaluation</h2>
           <h2 className="text-2xs mb-4 text-black ">Correct Answer</h2>
         </div>
-        <p className="text-black w-1/2">
+        <p className="text-black md:w-1/2 mb-10 md:mb-0">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis
           rerum cupiditate quaerat autem id delectus pariatur qui modi sed nihil
           numquam aspernatur vel animi esse obcaecati, amet asperiores eius?
