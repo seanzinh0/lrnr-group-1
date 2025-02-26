@@ -38,10 +38,26 @@ const QuizGenerator = () => {
     ) {
       alert("Please fill out the required information");
     } else {
-      // Passing input as state from user to quiz page
-      navigate("/quiz", { state: quizData });
+      // Passing input as data from user to quiz page
+      navigate("/quiz", { data: quizData });
     }
   };
+
+  const handleSelect = (value, name) => {
+
+    console.log(value, name);
+    if (name === 'topic') {
+      setSelectedTopic(value);
+      console.log(selectedTopic);
+    } else if (name === 'expertise') {
+      setSelectedDifficulty(value);
+    } else if (name === 'questionAmt') {
+      setSelectedQuestions(value);
+    } else if (name === 'style') {
+      setSelectedStyle(value);
+    }
+    
+  }
 
   return (
     <>
@@ -54,13 +70,13 @@ const QuizGenerator = () => {
 
         <div className="space-y-5">
           <h1 className="mt-10 text-gray-500">Topic</h1>
-          <QuizDropdown data={topics} onSelect={setSelectedTopic} />
+          <QuizDropdown data={topics} onSelect={handleSelect} selectVal={selectedTopic} name='topic'/>
           <h1 className="text-gray-500">Expertise</h1>
-          <QuizDropdown data={difficulty} onSelect={setSelectedDifficulty} />
+          <QuizDropdown data={difficulty} onSelect={setSelectedDifficulty} selectVal={selectedDifficulty} name='expertise' />
           <h1 className="text-gray-500">Number of Questions</h1>
-          <QuizDropdown data={questionAmount} onSelect={setSelectedQuestions} />
+          <QuizDropdown data={questionAmount} onSelect={setSelectedQuestions} selectVal={selectedTopic} name='questionAmt'/>
           <h1 className="text-gray-500">Style of questions</h1>
-          <QuizDropdown data={style} onSelect={setSelectedStyle} />
+          <QuizDropdown data={style} onSelect={setSelectedStyle} selectVal={selectedTopic} name='style'/>
         </div>
 
         <button

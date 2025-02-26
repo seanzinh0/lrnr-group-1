@@ -39,7 +39,7 @@ const data = {
   ],
 };
 
-const Quiz = () => {
+const Quiz = ({ data }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
