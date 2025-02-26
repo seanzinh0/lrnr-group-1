@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import "../App.css";
 import QuizDropdown from "../components/QuizDropdown";
+import { useNavigate } from "react-router-dom";
 
-//Uses the arrays as props to create dropdown options
 const QuizGenerator = () => {
   const topics = ["Goland", "AWS", "Javascript", "CI/CD"];
-
   const difficulty = ["Novice", "Intermediate", "Expert"];
-
   const questionAmount = [5, 10, 15];
-
   const style = [
     "Master Oogway",
     "1940s Gangster",
@@ -18,25 +15,34 @@ const QuizGenerator = () => {
     "Goku",
   ];
 
-  // State for storing user selections
   const [selectedTopic, setSelectedTopic] = useState("");
   const [selectedDifficulty, setSelectedDifficulty] = useState("");
   const [selectedQuestions, setSelectedQuestions] = useState("");
   const [selectedStyle, setSelectedStyle] = useState("");
 
+  const navigate = useNavigate();
+
   // Function to handle form submission
   const handleSubmit = () => {
-    console.log({
+    const quizData = {
       selectedTopic,
       selectedDifficulty,
       selectedQuestions,
       selectedStyle,
-    });
-
-    alert(
-      `Quiz generated with ${selectedQuestions} questions on ${selectedTopic} for ${selectedDifficulty} level`
-    );
+    };
+    if (
+      !selectedTopic ||
+      !selectedDifficulty ||
+      !selectedQuestions ||
+      !selectedStyle
+    ) {
+      alert("Please fill out the required information");
+    } else {
+      // Passing input as state from user to quiz page
+      navigate("/quiz", { state: quizData });
+    }
   };
+
   return (
     <>
       <div className="flex flex-col p-10">
