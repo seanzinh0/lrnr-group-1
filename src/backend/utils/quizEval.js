@@ -37,12 +37,15 @@ async function evaluateQuizAnswer(question, answer) {
 }
 
 function buildEvaluationPrompt(question, answer) {
-    return `Evaluate the following answer to the question and determine if it is correct or not. Provide a detailed evaluation in a paragraph and a confidence score (0-100) based on how well the answer matches the expected response. Focus on key terms and phrases in the answer.
+    return `Evaluate the following answer to the question and determine if it is correct or not. Provide a concise, friendly, and constructive evaluation in a paragraph, dont be to direct as it can come off as mean. be sure to be helpful and say what it is that can be improved. Include a confidence score (0-100) based on how well the answer matches the expected response. Focus on key terms and phrases in the answer, and provide actionable feedback for improvement if the answer is incorrect.
 
 For example:
 - If the question is "What is the capital of France?" and the answer is "Paris," it should be considered correct.
 - If the answer is "Paris, France," it should also be considered correct.
 - If the answer is "The capital is Paris," it should still be considered correct.
+- If the question is "What is the chemical formula for water?" and the answer is "H2O," it should be considered correct.
+- If the answer is "Water is H2O," it should also be considered correct.
+- If the answer is "H20" (with a typo), it should be considered incorrect, and the evaluation should suggest correcting the typo.
 
 Question: ${question}
 Answer: ${answer}
@@ -50,7 +53,7 @@ Answer: ${answer}
 JSON Template:
 {
   "correct": "Correct or Incorrect",
-  "evaluation": "Detailed evaluation of the answer.",
+  "evaluation": "Concise, professional, and constructive evaluation of the answer.",
   "confidence": "Confidence score (0-100)"
 }`;
 }
