@@ -1,24 +1,28 @@
 import QuestionCard from './QuestionCard';
 import EvalCard from './EvalCard';
+import {useState} from "react";
 
-const QuizCard = ({question}) => {
-    // add state variable for the question and answer
-    // pass question state as props to question card
-    // update answer state from question card and pass to eval card
-const [setQuestion, updateQuestion] = useState('');
-const [setAnswer, updateAnswer] = useState('');
+const QuizCard = ({question, handleSubmit, submitted, handleNextQuestion}) => {
+    const [answer, setAnswer] = useState('');
 
+    const handleAnswerChange = (answer) => {
+        setAnswer(answer);
+    };
 
     return (
         <>
-            <div className="mb-44 flex justify-center">
+            <div className="mb-10 md:mb-44 flex justify-center">
                 {/*pass the question as a prop*/}
-                <QuestionCard/>
+                <QuestionCard question={question} handleAnswerChange={handleAnswerChange} handleSubmit={handleSubmit}
+                              submitted={submitted}/>
             </div>
-            <div className="mb-72 flex justify-center">
-                {/*pass the question and answer state as a prop*/}
-                <EvalCard/>
-            </div>
+            {submitted && (
+                <div className="mb-72 flex justify-center">
+                    {/*pass the question and answer state as a prop*/}
+                    <EvalCard question={question} answer={answer} handleNextQuestion={handleNextQuestion}/>
+                </div>
+            )}
+
         </>
     )
 }

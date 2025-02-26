@@ -3,9 +3,9 @@ import { Flame, Menu, UserRound } from 'lucide-react';
 const AccountCard = () =>{
     return (
         <div className='flex justify-center'>
-            <div className="flex justify-evenly mt-20 mb-72 w-10/12">
+            <div className="flex justify-evenly mt-20 mb-72 w-10/12 md:flex-row flex-col-reverse items-center">
                 {/* Streak  */}
-                <div className="flex flex-col items-center w-3/12  ">
+                <div className="flex flex-col items-center md:w-3/12 w-11/12">
                     <Flame className="text-green-500 w-10 h-10" />
                     <h2 className="text-2xl font-medium my-8">Streak</h2>
                     <br />
@@ -13,7 +13,7 @@ const AccountCard = () =>{
                 </div>
 
                 {/* Platinum Quizzes */}
-                <div className="flex flex-col items-center w-3/12">
+                <div className="flex flex-col items-center md:w-3/12 w-11/12">
                     <Menu className="text-green-500 w-12 h-12" />
                     <h2 className="text-2xl font-medium  my-8">Platinum Quizzes</h2>
                   
@@ -23,7 +23,7 @@ const AccountCard = () =>{
                 </div>
 
                 {/* Level  */}
-                <div className="flex flex-col items-center w-3/12">
+                <div className="flex flex-col items-center md:w-3/12 w-11/12">
                     <UserRound className="text-green-500 w-12 h-12" />
                     <h2 className="text-2xl font-medium  my-8">Lrnr Level: 2</h2>
                   
