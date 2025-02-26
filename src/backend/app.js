@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import evaluateQuizAnswer from './utils/quizEval.js';
+import generateQuiz from './utils/quizGen.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -18,9 +19,24 @@ const distPath = path.join(__dirname, '..', '..', 'dist');
 app.use(express.json());
 app.use(express.static(distPath));
 
-app.get('/api/quizgenerator', (req, res) => {
-    res.send("for api")
-})
+app.post('/api/quizgenerator', async (req, res) => {
+    const { topic, difficulty, questionAmount, style } = req.body;
+
+    // Validate required fields
+    if (!topic || !difficulty || !questionAmount || !style) {
+        return res.status(400).send({ error: "All fields (topic, difficulty, questionAmount, style) are required." });
+    }
+
+    try {
+        // Generate the quiz using the imported function
+        const data = await generateQuiz(topic, difficulty, questionAmount, style);
+        res.send(data);
+    } catch (error) {
+        console.error('Error generating quiz:', error);
+        res.status(500).send({ error: "An error occurred while generating the quiz." });
+    }
+});
+
 
 app.post('/api/quiz', async (req, res) => {
     const { question, answer } = req.body;
