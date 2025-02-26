@@ -37,9 +37,10 @@ async function evaluateQuizAnswer(question, answer) {
 }
 
 function buildEvaluationPrompt(question, answer) {
-    return `Evaluate the following answer to the question and determine if it is correct or not. Provide a concise, friendly, and constructive evaluation in a paragraph, dont be to direct as it can come off as mean. be sure to be helpful and say what it is that can be improved. Include a confidence score (0-100) based on how well the answer matches the expected response. Focus on key terms and phrases in the answer, and provide actionable feedback for improvement if the answer is incorrect.
+    return `Evaluate the following answer to the question and determine if it is correct or not. Provide a concise, friendly, and constructive evaluation in a paragraph, dont be to direct as it can come off as mean. be sure to be helpful and say what it is that can be improved when incorrect not correct. Include a confidence score (0-100) based on how well the answer matches the expected response. Focus on key terms and phrases in the answer, and provide actionable feedback for improvement if the answer is incorrect. Also there is no partially correct or incorrect answer just strictly correct or incorrect.
 
 For example:
+- If the question is "Does Css stand for Cascading Style Sheets", and the user enter just yes or just a small answer that is correct, it should be correct.
 - If the question is "What is the capital of France?" and the answer is "Paris," it should be considered correct.
 - If the answer is "Paris, France," it should also be considered correct.
 - If the answer is "The capital is Paris," it should still be considered correct.
