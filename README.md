@@ -22,7 +22,7 @@
 2. Run `git clone git@github.com:seanzinh0/lrnr-group-1.git` (or clone your own fork of the repository)
 3. Go into the cloned folder with cd lrnr-group-1
 4. Run `npm install` (only has to be done before first start or when you change the source code)
-5. Run `npm run dev` & `node src/backend/app.js` if a developer or `npm run build && node src/backend/app.js` for users
+5. Run `npm run dev` & `node src/backend/app.js` for developers or `npm run build && node src/backend/app.js` for users
 6. Browse to the locally hosted link provided by Vite (http://localhost:5173/)
 7. You can also access this application using our hosted link provided in the About section of the repository.
 
