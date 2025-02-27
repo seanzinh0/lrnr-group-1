@@ -14,8 +14,8 @@
 
 
  ## Features:
-* Generating quiz with Claude sonnet 3.5 .
-* Provide evaluations based on user input.
+* Generates quizzes with Claude Sonnet 3.5.
+* Provides evaluations based on user input.
 
 ## Setup
 1. Install node.js
@@ -25,6 +25,13 @@
 5. Run `npm run dev` & `node src/backend/app.js` for developers or `npm run build && node src/backend/app.js` for users
 6. Browse to the locally hosted link provided by Vite (http://localhost:5173/)
 7. You can also access this application using our hosted link provided in the About section of the repository.
+
+## .ENV configuration:
+ * This project uses a `.env` file to store sensitive configuration details, including the API key, port information, and other environment-specific settings.
+ * Keeping these values in a `.env` file ensures security by preventing sensitive data from being hardcoded in the source code.
+ * To run this project locally, create a `.env` file in the root directory and populate it with the necessary environment variables. 
+ 
+
 
  ## Usage:
 1. The lrnr application starts at the **Homepage**, where users can get an understanding of the lrnr application and what it provides.
@@ -48,6 +55,10 @@
 
 5. Lastly, there is the **Results page**. The quiz results page is intended to provide a summary of correctly answered questions, quantify quiz results, and provide the option to try another quiz. Because this page has no logic implemented to make it functional, the page was programmed statically using React components.  
 <img width="645" alt="Screenshot 2025-02-25 at 10 03 35 PM" src="https://github.com/user-attachments/assets/8d516a45-aca9-4435-af4c-84a41f22624b" />
+
+
+
+
  
 
 ## Contributors:
