@@ -3,7 +3,7 @@ import { Zap, Banknote, UserRound } from 'lucide-react';
 const HomeCard = ()=>{
     return (
         <div className='flex justify-center'>
-            <div className="flex justify-evenly mt-24 mb-44 flex-col md:flex-row items-center gap-4 md:gap-0">
+            <div className="flex justify-evenly mt-24 mb-44 flex-col md:flex-row items-center md:items-start gap-4 md:gap-0">
                 <div className="flex flex-col items-center w-11/12 md:w-3/12">
                     <Zap className="text-green-500 w-12 h-12" />
                     <h2 className="text-2xl font-medium mt-8">Personalized Quizzes</h2>
