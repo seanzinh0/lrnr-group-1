@@ -1,16 +1,19 @@
 import React from "react";
 
 const QuestionCard = ({ question, handleAnswerChange, handleSubmit, submitted }) => {
+  // set state variables
   const [isFocused, setIsFocused] = React.useState(false);
   const [answer, setAnswer] = React.useState('');
   const [error, setError] = React.useState('');
 
+  // change state based on what is inputted for the answer
   const handleAnswerInput = (e) => {
     setAnswer(e.target.value);
     handleAnswerChange(e.target.value);
     setError('');
   };
 
+  // validate and handle submission
   const handleSubmission = () => {
     if (answer.trim() === '') {
       setError('Please enter an answer');

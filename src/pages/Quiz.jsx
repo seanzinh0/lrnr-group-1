@@ -5,11 +5,13 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const Quiz = () => {
   const location = useLocation();
+  // pull state that is passed from QuizGenerator
   const quizData = location.state;
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
 
+  // checks if there are questions and allows next questions to be displayed and if there aren't any take to results page
   const handleNextQuestion = () => {
     if (currentQuestion < quizData.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
@@ -19,6 +21,7 @@ const Quiz = () => {
     }
   };
 
+  // sets state for submission to be true
   const handleSubmit = () => {
     setSubmitted(true);
   };
@@ -31,6 +34,7 @@ const Quiz = () => {
               <h1 className="text-teal-500 text-4xl text-center mt-5">
                 {currentQuestion + 1} of {quizData.length}
               </h1>
+              {/*pass question and handlers to the quiz card*/}
               <QuizCard
                   question={quizData[currentQuestion].text}
                   handleSubmit={handleSubmit}
