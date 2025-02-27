@@ -3,7 +3,7 @@ import { Flame, Menu, UserRound } from 'lucide-react';
 const AccountCard = () =>{
     return (
         <div className='flex justify-center'>
-            <div className="flex justify-evenly mt-20 mb-72 w-10/12 md:flex-row flex-col-reverse items-center">
+            <div className="flex justify-evenly mt-20 mb-72 w-10/12 md:flex-row flex-col-reverse items-center md:items-start">
                 {/* Streak  */}
                 <div className="flex flex-col items-center md:w-3/12 w-11/12">
                     <Flame className="text-green-500 w-10 h-10" />
