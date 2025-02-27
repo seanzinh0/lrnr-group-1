@@ -1,7 +1,8 @@
 
 #  LRNR APP (group 1)
 
- Our team has designed an application called LRNR, that utilizes the Anthropic Claude API to create a customized quiz based on user input. The application was written by Red Ventures AI engineers using jQuery, and GO; however, our team has rewritten this application in Node.js, React, and Vite. The LRNR app consists of several pages, but it is relatively easy to navigate.  
+Our team has developed an application called LRNR, which leverages the Anthropic Claude API to generate customized quizzes based on user input. Originally built by Red Ventures AI engineers using jQuery and Go, our team has rewritten it using Node.js, React, and Vite. The LRNR app consists of multiple pages but remains intuitive and easy to navigate.
+
  ## Frontend technologies:
  <img width="242" src="https://cloudmatetechnologies.com/wp-content/uploads/2024/06/react.js.png"/>  <img width="242" alt="Screenshot 2025-02-25 at 10 47 25 PM" src="https://github.com/user-attachments/assets/f0818e40-c706-4194-95f5-c5ca06019f3b" /><img width="242" src="https://github.com/user-attachments/assets/a93a5c7d-ee55-4ae8-acf1-c58c1d119294"/>
 
