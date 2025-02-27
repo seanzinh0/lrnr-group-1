@@ -19,6 +19,8 @@ const distPath = path.join(__dirname, '..', '..', 'dist');
 app.use(express.json());
 app.use(express.static(distPath));
 
+
+//post routes to retrieve data 
 app.post('/api/quizgenerator', async (req, res) => {
     const { topic, difficulty, questionAmount, style } = req.body;
 
@@ -46,6 +48,7 @@ app.post('/api/quiz', async (req, res) => {
     }
 
     try {
+        // Evaluate the quiz answer using the imported function
         const result = await evaluateQuizAnswer(question, answer);
         res.send(result);
     } catch (error) {

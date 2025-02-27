@@ -10,6 +10,7 @@ async function evaluateQuizAnswer(question, answer) {
         const response = await axios.post('https://api.anthropic.com/v1/messages', {
             model: 'claude-3-5-sonnet-20241022',
             messages: [
+                //telling the api what type of reonse im looking for 
                 { role: 'user', content: buildEvaluationPrompt(question, answer) }
             ],
             max_tokens: 2000
@@ -60,6 +61,7 @@ JSON Template:
 }
 
 function extractJson(responseData) {
+    //eror handling, making sure that the reponse is in intended format
     const jsonMatch = responseData?.content?.[0]?.text?.match(/{[\s\S]*}/);
     if (!jsonMatch) throw new Error('No valid JSON found in response');
     try {
@@ -68,7 +70,7 @@ function extractJson(responseData) {
         throw new Error('Invalid JSON format from API');
     }
 }
-
+//error handling
 function handleClaudeError(error) {
     if (error.response) {
         console.error(`API Error ${error.response.status}: ${error.response.data.error?.message || 'Unknown error'}`);
