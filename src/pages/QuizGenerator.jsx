@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
 const QuizGenerator = () => {
+    // variables to store data for dropdowns
     const topics = ["Golang", "AWS", "Javascript", "CI/CD", "Quantum Computing", "HTML", "Node.js", "CSS"];
     const difficulty = ["Novice", "Intermediate", "Expert"];
     const questionAmount = [5, 10, 15];
@@ -24,6 +25,7 @@ const QuizGenerator = () => {
         "Gollum"
     ];
 
+    // state variables to handle passing data to the api
     const [selectedTopic, setSelectedTopic] = useState("");
     const [selectedDifficulty, setSelectedDifficulty] = useState("");
     const [selectedQuestions, setSelectedQuestions] = useState("");
@@ -34,7 +36,9 @@ const QuizGenerator = () => {
 
     const navigate = useNavigate();
 
+    // allows for data to be returned from backend and redirects to quiz page
     const handleSubmit = async () => {
+        // validate dropdowns
         if (
             !selectedTopic ||
             !selectedDifficulty ||
@@ -43,8 +47,10 @@ const QuizGenerator = () => {
         ) {
             setError("Please fill out the required information");
         } else {
+            // set loading to true to add a loader
             setLoading(true);
             try {
+                // call the backend to generate quiz
                 const response = await axios.post("/api/quizgenerator", {
                     topic: selectedTopic,
                     difficulty: selectedDifficulty,
@@ -61,6 +67,7 @@ const QuizGenerator = () => {
         }
     };
 
+    // sets errors if any dropdown is not selected
     useEffect(() => {
         setError(null);
     }, [selectedTopic, selectedDifficulty, selectedQuestions, selectedStyle]);

@@ -1,10 +1,12 @@
 import {useState, useEffect} from 'react';
-
+// pass answer and question as props
 const EvalCard = ({ question, answer, handleNextQuestion }) => {
+    // state variables to set evaluations, loading, and errors
     const [evaluation, setEvaluation] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    // use effect when question or answer changes provide a new evaluation
     useEffect(() => {
         const evaluateAnswer = async () => {
             try {

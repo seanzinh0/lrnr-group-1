@@ -3,6 +3,7 @@ import EvalCard from './EvalCard';
 import {useState} from "react";
 
 const QuizCard = ({question, handleSubmit, submitted, handleNextQuestion}) => {
+    // allows for answer to change and be passed to the eval card
     const [answer, setAnswer] = useState('');
 
     const handleAnswerChange = (answer) => {
