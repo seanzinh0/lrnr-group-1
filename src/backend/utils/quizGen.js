@@ -14,6 +14,7 @@ async function generateQuiz(topic, difficulty, questionAmount, style) {
         messages: [
           {
             role: "user",
+            //telling the ai what param we want to use to build quiz
             content: buildQuizPrompt(topic, difficulty, questionAmount, style),
           },
         ],
@@ -37,6 +38,7 @@ async function generateQuiz(topic, difficulty, questionAmount, style) {
   }
 }
 
+//function to create test questions
 function buildQuizPrompt(topic, difficulty, questionAmount, style) {
   return `Generate ${questionAmount} ${style}-style ${difficulty} questions about ${topic}.
 
@@ -106,6 +108,7 @@ JSON Template:
 }
 
 function extractJson(responseData) {
+  //eror handling, making sure that the reponse is in intended format
   const jsonMatch = responseData?.content?.[0]?.text?.match(/{[\s\S]*}/);
   if (!jsonMatch) throw new Error("No valid JSON found in response");
   try {
@@ -115,6 +118,8 @@ function extractJson(responseData) {
   }
 }
 
+
+//error handling
 function handleClaudeError(error) {
   if (error.response) {
     console.error(
