@@ -52,10 +52,6 @@ The last selection provided on the quiz generator page includes the number of qu
 
 5. Lastly, there is the **Results page**. The quiz results page is intended to provide a summary of correctly answered questions, quantify quiz results, and provide the option to try another quiz. Because this page has no logic implemented to make it functional, the page was programmed statically using React components.  
 <img width="645" alt="Screenshot 2025-02-25 at 10 03 35 PM" src="https://github.com/user-attachments/assets/8d516a45-aca9-4435-af4c-84a41f22624b" />
-
-
-
- ## Demo:
  
 
 ## Contributors:
